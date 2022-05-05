@@ -7,6 +7,11 @@ def call(Map pipelineParams) {
     }
 
     stages {
+        stage('checkout git') {
+                steps {
+                    git branch: pipelineParams.branch, url: pipelineParams.scmUrl
+                }
+          } 
         stage('build') {
             steps {  
               sh "mvn pipelineParams.action package"

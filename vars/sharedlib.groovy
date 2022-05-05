@@ -9,7 +9,7 @@ def call(Map pipelineParams) {
     stages {
         stage('Hello') {
             steps {  
-                  sh "mvn pipelineParams.action package"
+              sh "mvn ${pipelineParams.action} package"
             }
         }
     }

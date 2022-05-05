@@ -14,7 +14,7 @@ def call(Map pipelineParams) {
           } 
         stage('build') {
             steps {  
-              sh "mvn ${pipelineParams.action} package"
+              sh "mvn ${pipelineParams.action} ${pipelineParams.package}"
             }
         }
     }

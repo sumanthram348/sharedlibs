@@ -1,4 +1,4 @@
-def call(Map pipelineParams) {
+def call(Map pipelineParams = [:]) {
   pipeline {
     agent any
     
@@ -9,7 +9,7 @@ def call(Map pipelineParams) {
     stages {
         stage('Hello') {
             steps {  
-              sh "mvn ${pipelineParams.action} package"
+              sh "mvn pipelineParams.action package"
             }
         }
     }

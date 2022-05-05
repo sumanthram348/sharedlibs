@@ -1,12 +1,15 @@
 def call(Map pipelineParams) {
   pipeline {
     agent any
+    
+    tools {
+        maven "M3"
+    }
 
     stages {
         stage('Hello') {
-            steps {
-                      def mvnHome =  tool name: 'maven3', type: 'maven'   
-                      sh "${mvnHome}/bin/mvn pipelineParams.action package"
+            steps {  
+                  sh "mvn pipelineParams.action package"
             }
         }
     }
